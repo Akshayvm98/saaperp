@@ -76,7 +76,7 @@ def test(request):
 		duration=request.POST.get('duration')
 		eid=int(request.POST.get('examname'))
 		examname=Exam.objects.get(pk=eid)
-		print(type(eid))
+		
 		cid=int(request.POST.get('classroom'))
 		classroom = Classroom.objects.get(pk=cid)
 		maxmarks=request.POST.get('maxmarks')
@@ -100,11 +100,18 @@ def score(request):
 	students=Student.objects.all()
 
 	if request.method == "POST":
-		sid=int(request.POST.get('subject'))
-		exam=Exam.objects.get(pk=sid)
-		eid=int(request.POST.get('test'))
-		test=Test.objects.get(pk=eid)
-		Score.objects.create()
+		eid=int(request.POST.get('exam'))
+		exam=Exam.objects.get(pk=eid)
+
+		tid=int(request.POST.get('test'))
+		test=Test.objects.get(pk=tid)
+		
+		sid=int(request.POST.get('student'))
+		student=Test.objects.get(pk=sid)
+		cid=int(request.POST.get('score'))
+		score=Test.objects.get(pk=cid)
+
+		Score.objects.create(exam=exam, test=test,student=student,score=score,classroom=classroom)
 		return redirect('/score/')
 	return render(request, "score.html",{'exam':exam,'subject':subject,'classrooms':class_rooms,'students':students})
 

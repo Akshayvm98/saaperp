@@ -12,8 +12,8 @@
 		<label>Select Test</label>
 		<select name="test" class="form-control">
 			{% for room in classrooms %}
-				{% for subjectname in subject %}
-					<option value="{{u.id}}">{{subjectname}} {{room.standard}} {{room.section}}</option>
+				{% for u in subject %}
+					<option value="{{u.id}}">{{u}} {{room.standard}} {{room.section}}</option>
 				{% endfor %}
 			{% endfor %}
 		</select><br>
@@ -25,8 +25,12 @@
 			{% endfor %}
 		</select><br>
 		<label>Enter marks</label><br>
-		<input type="number" required name="price" min="0" value="0" step="any"><br><br>
-		<input class="btn btn-primary" type="submit" name="submit"></input><br>
+		
+		
+		<input type="number" class="form-control" placeholder="Enter the marks" name='marks' required><br>
+		
+		<input class="btn btn-primary" type="submit" name="submit"></input><br><br>
+		<a class="btn btn-primary" href="/dashboard/" role="button">Home</a><br>
 	</form>
 </div>
 {%endblock%}
