@@ -1,0 +1,14 @@
+{%extends 'base.html' %}
+{%block element%}<div class="col-md-4" style="padding:50px">
+	<form action="/signin/" method="POST">
+		{% csrf_token %}
+		
+		<input type="text" class="form-control" placeholder="Username" name="username" required><br>
+		<input type="password" class="form-control"  placeholder="Password" name="password" required><br>
+		
+		<input type="submit" value="Sign In">
+	</form>
+</div>
+{%endblock%}
+
+

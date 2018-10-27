@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block auth%}
+<div class="col-md-4" style="padding:50px">
+	<form action="/test/" method="POST">
+		{% csrf_token %}
+		<label>Select Subject</label>
+		<select name="subject" class="form-control">
+			{% for subjectname in subject %}
+				<option value="{{subjectname.id}}">{{subjectname}}</option>
+			{% endfor %}
+		</select><br>
+		<label>Max Marks</label><br>
+		<input type="text" class="form-control" placeholder="Max Marks" name='maxmarks' required><br>
+		<label>Duration in minutes</label><br>
+		<input type="text" class="form-control" placeholder="Duration in minutes" name='duration' required><br>
+		<label>Evaluated By</label>
+		<select name="evaluatedby" class="form-control">
+			{% for u in profile %}
+				<option value="{{u.pk}}">{{u}}</option>
+			{% endfor %}
+		</select>
+		<label>Select Exam</label>
+		<select name="examname" class="form-control">
+			{% for examname in exam %}
+				<option value="{{examname.id}}">{{examname}}</option>
+			{% endfor %}
+		</select>
+		<label>Select classroom</label>
+		<select name="classroom" class="form-control">
+			{% for room in classrooms %}
+				<option value="{{room.id}}">{{room.standard}}  {{room.section}}</option>
+			{% endfor %}
+		</select><br>
+		<input class="btn btn-primary" type="submit" name="submit"></input>
+	</form>
+{% endblock %}

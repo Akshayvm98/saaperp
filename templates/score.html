@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block auth%}
+<div class="col-md-4" style="padding:50px">
+	<form action="/score/" method="POST">
+		{% csrf_token %}
+		<label>Select Exam</label>
+		<select name="exam" class="form-control">
+			{% for examname in exam %}
+				<option value="{{examname.id}}">{{examname}}</option>
+			{% endfor %}
+		</select><br>
+		<label>Select Test</label>
+		<select name="test" class="form-control">
+			{% for room in classrooms %}
+				{% for subjectname in subject %}
+					<option value="{{u.id}}">{{subjectname}} {{room.standard}} {{room.section}}</option>
+				{% endfor %}
+			{% endfor %}
+		</select><br>
+		<label>Select Student</label>
+		<select name="student" class="form-control">
+			
+			{% for student in students%}
+				<option value="{{student.id}}">{{student}} </option>
+			{% endfor %}
+		</select><br>
+		<label>Enter marks</label><br>
+		<input type="number" required name="price" min="0" value="0" step="any"><br><br>
+		<input class="btn btn-primary" type="submit" name="submit"></input><br>
+	</form>
+</div>
+{%endblock%}

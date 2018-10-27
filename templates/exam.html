@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%block auth%}
+<div class="col-md-4" style="padding:50px">
+	<form action="/exam/" method="POST">
+		{% csrf_token %}
+		
+		<input type="text" class="form-control" placeholder="Exam Name" name="examname" required><br>
+		<label>Select Class Room</label>
+		<select name="classroom" class="form-control">
+			{% for room in classrooms %}
+				<option value="{{room.id}}">{{room}}</option>
+			{% endfor %}
+		</select>
+		<br><input class="btn btn-primary" type="submit" name="submit"></input>
+	</form>
+</div>
+{% endblock %}

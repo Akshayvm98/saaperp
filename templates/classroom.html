@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block auth%}
+<br>
+<div class="card border-dark mb-3" style="width: 72rem;" >
+	<table class="table table-bordered table-hover ">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Sl.No</th>
+				<th scope="col">First</th>
+				
+			</tr>
+		</thead>
+		<tbody href="#">
+			{% for student in students%}
+				<tr>
+					<th scope="row">1</th>
+					<td>{{student.name}}</td>
+					
+				</tr>
+			{% endfor %}
+			
+			
+		</tbody>
+	</table>
+</div>
+{% endblock %}

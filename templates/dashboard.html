@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+{% block element %}
+	{% for room in classrooms %}
+		<br><div class="card" style="width: 9rem; padding-left=9rem;">
+			<div class="card-body">
+				<a href="/classroom/{{room.id}}/" class="card-link">{{room.standard}} {{room.section}} </a>
+			</div>
+		</div>
+	{% endfor %}
+{%endblock%}
