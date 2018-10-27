@@ -16,7 +16,7 @@ def signin(request):
 		user = authenticate(request, username=username, password=password)
 		if user:
 			login(request, user)
-			return render(request, "home.html")
+			return render(request, "dashboard.html")
 
 	return render(request, "signin.html")	
 

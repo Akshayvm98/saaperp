@@ -1,17 +1,18 @@
 {%extends 'base.html'%}
 {% block element %}
+	<head>
+		<link rel="stylesheet" type="" href="home.css">
+	</head>
 	{% for room in classrooms %}
 		<br><div class="card" style="width: 9rem; padding-left=9rem;">
 			<div class="card-body">
 				<a href="/classroom/{{room.id}}/" class="card-link">{{room.standard}} {{room.section}} </a>
 			</div>
 		</div><br>
-		<a class="btn btn-primary" href="" role="button">Link</a><br>
-		<a class="btn btn-primary" href="#" role="button">Link</a><br>
-		<a class="btn btn-primary" href="#" role="button">Link</a><br>
-		<a class="btn btn-primary" href="#" role="button">Link</a><br>
-		<a class="btn btn-primary" href="#" role="button">Link</a><br>
-		<a class="btn btn-primary" href="#" role="button">Link</a><br>
-		<a class="btn btn-primary" href="#" role="button" style="padding: 5px 10px;">Link</a><br>
+		<div class="btn-group-vertical" id="btnv">
+			<button type="button" class="btn btn-primary">Exam</button>
+			<button type="button" class="btn btn-primary">Test</button>
+			<button type="button" class="btn btn-primary">Scores</button>
+		</div>
 	{% endfor %}
 	{%endblock%}
