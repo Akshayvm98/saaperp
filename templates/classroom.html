@@ -1,26 +1,62 @@
 {%extends 'base.html'%}
 {%block auth%}
 <br>
-<div class="card border-dark mb-3" style="width: 72rem;" >
-	<table class="table table-bordered table-hover ">
-		<thead class="thead-dark">
-			<tr>
-				<th scope="col">Sl.No</th>
-				<th scope="col">First</th>
-				
-			</tr>
-		</thead>
-		<tbody href="#">
-			{% for student in students%}
-				<tr>
-					<th scope="row">1</th>
-					<td>{{student.name}}</td>
-					
-				</tr>
-			{% endfor %}
-			
-			
-		</tbody>
-	</table>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="card border-dark mb-3" style="width: 72rem;" >
+				<table class="table table-bordered table-hover table-condensed">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">SL.no</th>
+							<th scope="col">Student Name</th>
+							<th scope="col">Marks Scored</th>
+						</tr>
+					</thead>
+					<tbody href="#">
+						<tr>
+							<th scope="row">1</th>
+							<td>Aishwarya</td>
+							<td>100</td>
+							
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Achyuth</td>
+							<td>100</td>
+							
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Vignesh</td>
+							<td>100</td>
+							
+						</tr>
+						<tr>
+							<th scope="row">4</th>
+							<td>Vivek</td>
+							<td>100</td>
+							
+						</tr>
+						<tr>
+							<th scope="row">5</th>
+							<td>Shivani</td>
+							<td>100</td>
+							
+						</tr>
+						
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}
+{# {% for student in students%}
+<tr>
+	<th scope="row">1</th>
+	<td>{{student.name}}</td>
+	
+</tr>
+{% endfor %} #}

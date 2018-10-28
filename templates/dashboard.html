@@ -1,18 +1,33 @@
 {%extends 'base.html'%}
+{%block meta%}
+<link rel="stylesheet" type="" href="home.css">
+{%endblock%}
 {% block element %}
-	<head>
-		<link rel="stylesheet" type="" href="home.css">
-	</head>
-	{% for room in classrooms %}
-		<br><div class="card" style="width: 9rem; padding-left=9rem;">
-			<div class="card-body">
-				<a href="/classroom/{{room.id}}/" class="card-link">{{room.standard}} {{room.section}} </a>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="btn-group-vertical" id="btnv">
+					
+					
+					<a href="../exam/" class="btn">Exam</a>
+					<a href="../test/" class="btn">Test</a>
+					<a href="../score/" class="btn">Scores</a>
+					
+				</div>
+				
 			</div>
-		</div><br>
-		<div class="btn-group-vertical" id="btnv">
-			<button type="button" class="btn btn-primary">Exam</button>
-			<button type="button" class="btn btn-primary">Test</button>
-			<button type="button" class="btn btn-primary">Scores</button>
+			<div class="col-md-10">
+				
+				{% for room in classrooms %}
+					<br><div class="card" style="width: 9rem; padding-left=9rem;">
+						<div class="card-body">
+							<a href="/classroom/{{room.id}}/" class="card-link">{{room.standard}} {{room.section}} </a>
+						</div>
+					</div><br>
+					
+				{% endfor %}
+				
+			</div>
 		</div>
-	{% endfor %}
+	</div>
 	{%endblock%}
