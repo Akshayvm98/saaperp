@@ -7,7 +7,7 @@ from django.contrib.auth import login, authenticate,logout
 
 	
 def home(request):
-	return render(request,'home.html')
+	return render(request,'dashboard.html')
 
 def signin(request):
 	if request.method == "POST":
