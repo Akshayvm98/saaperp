@@ -35,7 +35,7 @@ def signup(request):
 			return HttpResponse("Please Check the Info, User might already exist.")
 		else:
 			user = User.objects.create_user(username=username, email=email, password=password)
-			return render(request, 'signin.html')
+			return redirect('/exam/')
 	return render(request, "signup.html")
 
 def signout(request):
